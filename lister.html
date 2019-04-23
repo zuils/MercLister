@@ -1,0 +1,39 @@
+Updated Jun 9th for version 1.0 (<a href="https://jsfiddle.net/A45327Eq/vruwmyao/172/embedded/result/" target="_blank">0.26b version</a>) Added the zlib/pako save decoding Nov 14, 2017<br>
+<table class="noBorder">
+<td class="noBorder">
+	<textarea id="savegame" placeholder="Paste your save game here" autofocus onclick="this.focus();this.select()" onblur="readSave()"></textarea>
+</td><td>
+	<button onclick="readSave()">Read save</button>
+</td><td>
+	<a href="https://www.reddit.com/r/ClickerHeroes/comments/3ues7c/merc_lister_updated_with_quests_and_failure/" target="_blank">FAQ</a>
+</td>
+</table>
+Show any TTDs: <input type="checkbox" id="showTTD" checked> 
+	Sort quests: <input type="checkbox" id="sortQuests" checked> 
+	Show days in time format: <input type="checkbox" id="showDays" checked> 
+	Show recruit TTDs: <input type="checkbox" id="showMercTTDs"><br>
+Number of revive TTDs: <input size="6" type="text" id="numTTDs"> Update time: <input type="checkbox" id="updateTime" checked> Alarm: <input size="6" type="text" onChange="formatAlarm(this);" value="hhmmss" onclick="clearInterval(window.alarm);this.value='hhmmss';this.select();"/><br>
+Number of sets of quests: <input size="6" type="text" id="inputQuests" value=8> Mark: 
+	<a class="tsource"><input type="checkbox" id="mGold"><span class="ttip">Gold</span></a>
+	<a class="tsource"><input type="checkbox" id="mHS"><span class="ttip">HS</span></a>
+	<a class="tsource"><input type="checkbox" id="mRubies"><span class="ttip">Rubies</span></a>
+	<a class="tsource"><input type="checkbox" id="mSkills"><span class="ttip">Skills</span></a>
+	<a class="tsource"><input type="checkbox" id="mRelics"><span class="ttip">Relics</span></a><br>
+Number of recruits: <input size="6" type="text" id="inputMercs" value=4> Filters:
+	<a class="tsource"><input type="checkbox" id="Common"><span class="ttip">Common</span></a>
+	<a class="tsource"><input type="checkbox" id="Uncommon"><span class="ttip">Uncommon</span></a>
+	<a class="tsource"><input type="checkbox" id="Rare"><span class="ttip">Rare</span></a>
+	<a class="tsource"><input type="checkbox" id="Epic"><span class="ttip">Epic</span></a>
+	<a class="tsource"><input type="checkbox" id="Fabled"><span class="ttip">Fabled</span></a>
+	<a class="tsource"><input type="checkbox" id="Mythical"><span class="ttip">Mythical</span></a>
+	<a class="tsource"><input type="checkbox" id="Legendary"><span class="ttip">Legendary</span></a>
+	<a class="tsource"><input type="checkbox" id="Transcendent"><span class="ttip">Transcendent</span></a>
+	<a class="tsource"><input type="checkbox" id="Gold"><span class="ttip">Gold</span></a>
+	<a class="tsource"><input type="checkbox" id="HS"><span class="ttip">HS</span></a>
+	<a class="tsource"><input type="checkbox" id="Rubies"><span class="ttip">Rubies</span></a>
+	<a class="tsource"><input type="checkbox" id="Skills"><span class="ttip">Skills</span></a>
+	<a class="tsource"><input type="checkbox" id="Lives"><span class="ttip">Lives</span></a>
+	<a class="tsource"><input type="checkbox" id="Recruitment"><span class="ttip">Recruitment</span></a><br>
+<div id="alive"></div>
+<div id="quest"></div>
+<div id="merc"></div>
