@@ -706,7 +706,7 @@ function setCookies() {
 		setCookie(checks[i], (document.getElementById(checks[i]).checked ? "1" : "0"), 15);
 }
 
-var sound = new Audio("http://www.freespecialeffects.co.uk/soundfx/sirens/fanfare2.wav");
+var sound = new Audio("./fanfare2.wav");
 var alarmSec;
 function formatAlarm(el) {
 	var h = 0, m = 0;
