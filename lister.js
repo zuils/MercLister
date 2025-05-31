@@ -10,14 +10,21 @@ function fn(e) {
 
 function readSave() {
 	var txt = document.getElementById("savegame").value;
-	if (txt.indexOf("Fe12NAfA3R6z4k0z") > -1 || txt.substring(0, 32) == "7a990d405d2c6fb93aa8fbb0ec1a3b23") {
+	let ANTI_CHEAT_CODE = "Fe12NAfA3R6z4k0z";
+    let zlib = "7a990d405d2c6fb93aa8fbb0ec1a3b23";
+    let deflate = "7e8bb5a89f2842ac4af01b3b7e228592";
+    if (txt.indexOf(ANTI_CHEAT_CODE) > -1 || txt.substring(0, 32) === zlib || txt.substring(0, 32) === deflate) {
 		document.getElementById("alive").innerHTML = "Decoding...";
-    if (txt.substring(0, 32) == "7a990d405d2c6fb93aa8fbb0ec1a3b23") {
+    if (txt.substring(0, 32) == zlib) {
       var pako = window.pako;
       var data = JSON.parse(pako.inflate(atob(txt.substring(32)), {to: 'string'}));
     }
+	else if (txt.substring(0, 32) == deflate) {
+		var pako = window.pako;
+		var data = JSON.parse(pako.inflateRaw(atob(txt.substring(32)), {to: 'string'}));
+	}
     else {
-      var result = txt.split("Fe12NAfA3R6z4k0z");
+      var result = txt.split(ANTI_CHEAT_CODE);
       txt = "";
       for (var i = 0; i < result[0].length; i += 2)
         txt += result[0][i];
