@@ -8,6 +8,9 @@ function fn(e) {
 	}
 }
 
+var root2;
+var orph;
+
 function readSave() {
 	var txt = document.getElementById("savegame").value;
 	let ANTI_CHEAT_CODE = "Fe12NAfA3R6z4k0z";
@@ -35,6 +38,8 @@ function readSave() {
 		var numTTDs = document.getElementById("numTTDs").value;
 		var showDays = document.getElementById("showDays").checked;
 		var showTTD = document.getElementById("showTTD").checked;
+		root2 = document.getElementById("root2").checked;
+		orph = data.outsiders.outsiders[9].level;
 		alive(data, showTTD, numTTDs, showDays, document.getElementById("updateTime").checked);
 		quest(data, document.getElementById("inputQuests").value, document.getElementById("sortQuests").checked);
 		mercs(data.mercenaries.mercRoller.seed, document.getElementById("inputMercs").value, showTTD, showDays, document.getElementById("showMercTTDs").checked, numTTDs);
@@ -647,11 +652,11 @@ function getReviveTTD(seed, questDuration) {
 		questDuration = 0;
 	var reviveTTD = 0;
 	seed = randNum(seed);
-	var chance = (seed / 2147483646) > 4 / 5;
+	var chance = (seed / 2147483646) > 4 / 5 + root2 * (.1 * (1 - Math.exp(-.008 * orph)));
 	while (!chance) {
 		reviveTTD += 86400;
 		seed = randNum(seed);
-		chance = (seed / 2147483646) > 4 / 5;
+		chance = (seed / 2147483646) > 4 / 5 + root2 * (.1 * (1 - Math.exp(-.008 * orph)));
 	}
 	seed = randNum(seed);
 	reviveTTD += (seed % 86400) + 1;
